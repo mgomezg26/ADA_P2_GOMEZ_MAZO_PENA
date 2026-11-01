@@ -1,5 +1,7 @@
 #include <string>
 #include <iostream>
+#include <algorithm>
+#include <utility>
 #pragma once
 
 using namespace std;
@@ -15,5 +17,3 @@ string desplazar(string a, int k);
 
 // Función para partir un número en dos partes (divide y vencerás)
 pair<string, string> partir(string a, int k);
-
-int main();

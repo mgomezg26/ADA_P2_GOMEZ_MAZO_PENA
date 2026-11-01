@@ -22,6 +22,15 @@ string sumar(string a, string b) {
 
     // Al final del ciclo, el string resultado contiene la suma en orden inverso
     reverse(resultado.begin(), resultado.end());
+
+    // Eliminamos los 0's a la izquierda del resultado
+    size_t pos = resultado.find_first_not_of('0');
+    if (pos != string::npos) {
+        resultado = resultado.substr(pos);
+    } else {
+        resultado = "0";
+    }
+
     return resultado;
 }
 
@@ -75,6 +84,7 @@ string restar(string a, string b) {
 
 // Desplaza el número a la izquierda agregando n ceros al final
 string desplazar(string a, int n) {
+    if (n <= 0) return a;
     if (a == "0") return "0";
     a.append(n, '0');
     return a;
@@ -90,16 +100,5 @@ pair<string, string> partir(string a, int n) {
     string alta =  a.substr(0, a.size() - n);
     string baja = a.substr(a.size() - n);
     return make_pair(alta, baja);
-}
-
-int main() {
-
-    string a = "676587";
-    string b = "000132";
-
-    pair<string, string> mitades = partir(a, a.size() / 2);
-    cout << "Alta: " << mitades.first << ", Baja: " << mitades.second << endl;
- 
-    cout << restar(a, b) << endl;
 }
 
