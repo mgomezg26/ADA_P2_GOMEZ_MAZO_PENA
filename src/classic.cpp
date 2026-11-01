@@ -2,11 +2,13 @@
 
 #include "classic.h"
 #include <vector>
+
+using namespace std;
  
-std::string multiplicacionClasica(const std::string& a, const std::string& b) {
+string multiplicacionClasica(const string& a, const string& b) {
     const size_t n = a.size(), m = b.size();
     if (n == 0 || m == 0) return "0";
-    std::vector<int> acc(n + m, 0);   // acc[k] = coeficiente de 10^k (k=0 es la unidad)
+    vector<int> acc(n + m, 0);   // acc[k] = coeficiente de 10^k (k=0 es la unidad)
     for (size_t i = 0; i < n; ++i) {
         int da = a[n - 1 - i] - '0';
         if (da == 0) continue;
@@ -23,7 +25,7 @@ std::string multiplicacionClasica(const std::string& a, const std::string& b) {
     // aqui se construye la cadena (más significativo primero) saltando ceros a la izquierda
     size_t top = n + m;
     while (top > 1 && acc[top - 1] == 0) --top;
-    std::string r;
+    string r;
     r.reserve(top);
     for (size_t k = top; k-- > 0;) r.push_back('0' + acc[k]);
     return r;
