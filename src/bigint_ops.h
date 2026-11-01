@@ -14,6 +14,6 @@ string restar(string a, string b);
 string desplazar(string a, int k);
 
 // Función para partir un número en dos partes (divide y vencerás)
-string partir(string a, int k);
+pair<string, string> partir(string a, int k);
 
 int main();
