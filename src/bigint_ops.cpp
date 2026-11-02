@@ -94,7 +94,7 @@ string desplazar(string a, int n) {
 // Separa a en mitad alta y mitad baja, devuelve dos mitades
 pair<string, string> partir(string a, int n) {
 
-    if (a.size() <= n) {
+    if (a.size() <= static_cast<size_t>(n)) {
         return make_pair("0", a);
     }
 
